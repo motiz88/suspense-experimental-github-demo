@@ -20,7 +20,7 @@ Then watch the initial load:
 
 <img alt="load code and data and parallel" src="https://i.imgur.com/NruRXWf.png">
 
-You can see code for the route and its data loads in parallel. If you click a link, you'll see that data is also requested immediately -- we're not fetching for the code to load (which can take a while) to start fetching its data.
+You can see code for the route and its data loads in parallel. If you click a link, you'll see that data is also requested immediately -- we're not waiting for the code to load (which can take a while) to start fetching its data.
 
 You might be wondering: how is this different from *always* fetching all the data? This might seem similar to how routing systems worked before fetch-on-render became popular. However, the crucial difference is that **we can show content as soon as we have enough data — while some of it is still being fetched**. The User page shows an example of this: it only "waits" for the user profile data, but wraps less important parts into Suspense so they can render when they're ready. A SuspenseList then coordinates their reveal so the page doesn't jump due to out-of-order responses.
 
